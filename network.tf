@@ -4,9 +4,7 @@ resource "aws_vpc" "edr_wg_vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    "Name"      = "${var.env_prefix}_vpc"
-    "Creator"   = var.creator
-    "Terraform" = true
+    "Name" = "${var.env_prefix}_vpc"
   }
 }
 
@@ -17,9 +15,7 @@ resource "aws_subnet" "edr_wg_public_subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    "Name"      = "${var.env_prefix}_public_subnet"
-    "Creator"   = var.creator
-    "Terraform" = true
+    "Name" = "${var.env_prefix}_public_subnet"
   }
 }
 
@@ -27,18 +23,15 @@ resource "aws_internet_gateway" "edr_wg_igw" {
   vpc_id = aws_vpc.edr_wg_vpc.id
 
   tags = {
-    "Name"      = "${var.env_prefix}_vpc_igw"
-    "Creator"   = var.creator
-    "Terraform" = true
+    "Name" = "${var.env_prefix}_vpc_igw"
   }
+
 }
 
 resource "aws_route_table" "edr_wg_public_subnet_rt" {
   vpc_id = aws_vpc.edr_wg_vpc.id
   tags = {
-    "Name"      = "${var.env_prefix}_public_subnet_rt"
-    "Creator"   = var.creator
-    "Terraform" = true
+    "Name" = "${var.env_prefix}_public_subnet_rt"
   }
 }
 

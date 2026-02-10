@@ -7,18 +7,16 @@ resource "aws_instance" "edr_wg_instance" {
   user_data = templatefile(
     "${path.module}/wg.tftpl",
     {
-      p1_private_key   = var.p1_private_key
-      p1_public_key    = var.p1_public_key
-      p2_private_key   = var.p2_private_key
-      p2_public_key    = var.p2_public_key
-      wg_ps_key        = var.wg_ps_key
-      wireguard_port   = var.wireguard_port
+      p1_private_key = var.p1_private_key
+      p1_public_key  = var.p1_public_key
+      p2_private_key = var.p2_private_key
+      p2_public_key  = var.p2_public_key
+      wg_ps_key      = var.wg_ps_key
+      wireguard_port = var.wireguard_port
     }
   )
 
   tags = {
-    "Name"      = "${var.env_prefix}_instance"
-    "Creator"   = var.creator
-    "Terraform" = true
+    "Name" = "${var.env_prefix}_instance"
   }
 }

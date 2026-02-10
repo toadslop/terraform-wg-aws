@@ -2,7 +2,7 @@ resource "aws_security_group" "edr_wg_sg" {
   name   = "edr_wg_sg"
   vpc_id = aws_vpc.edr_wg_vpc.id
 
-  
+
   # SSH access from anywhere, uncomment if needed
   /*
   ingress {
@@ -38,8 +38,6 @@ resource "aws_security_group" "edr_wg_sg" {
   }
 
   tags = {
-    "Name"      = "ed_wg_sg"
-    "Creator"   = var.creator
-    "Terraform" = true
+    "Name" = "${var.env_prefix}_sg"
   }
 }
