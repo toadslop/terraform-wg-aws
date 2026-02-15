@@ -1,2 +1,9 @@
 switch to nushell for scripts
 automatically update wireguard config
+use provider standard tags
+write secrets to .mise.toml and have TF load from environment
+make ssh access configurable by variable instead of comment
+switch to ubuntu 24 image
+have start.sh automatically apply wireguard configuration
+have start.sh accept parameter to automatically turn on VPN
+have stop.sh turn off wireguard before tearing down
